@@ -1,19 +1,55 @@
-function App() {
-  function handleClick() {
-    let randomNum = Math.floor(Math.random() *3)+1;
-    console.log(randomNum);
-    let userInput = prompt('type a number');
-    alert(`Computer number: ${randomNum}, your guess: ${userInput}`);
-  }
+import { useState } from 'react'; 
 
-  return (
-    <div>
-      <h1>Task: Add a button and handle a click event</h1>
-      <button onClick={handleClick}>
-        Guess the number between 1 and 3
-      </button>
-    </div>
-  );
-}
+export default function RegisterForm() { 
+  const [form, setForm] = useState({ 
+    firstName: 'Luke', 
+    lastName: 'Jones', 
+    email: 'lukeJones@sculpture.com', 
+  }); 
 
-export default App;
+  return ( 
+    <> 
+      <label> 
+        First name: 
+        <input 
+          value={form.firstName} 
+          onChange={e => { 
+            setForm({ 
+              ...form, 
+              firstName: e.target.value 
+            }); 
+          }} 
+        /> 
+      </label> 
+      <label> 
+        Last name: 
+        <input 
+          value={form.lastName} 
+          onChange={e => { 
+            setForm({ 
+              ...form, 
+              lastName: e.target.value 
+            }); 
+          }} 
+        /> 
+      </label> 
+      <label> 
+        Email: 
+        <input 
+          value={form.email} 
+          onChange={e => { 
+            setForm({ 
+              ...form, 
+              email: e.target.value 
+            }); 
+          }} 
+        /> 
+      </label> 
+      <p> 
+        {form.firstName}{' '} 
+        {form.lastName}{' '} 
+        ({form.email})
+      </p> 
+    </> 
+  ); 
+} 
