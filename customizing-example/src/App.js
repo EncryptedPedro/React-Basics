@@ -1,55 +1,29 @@
-import { useState } from 'react'; 
+import React from "react";
+import Fruits from "./Fruits";
+import FruitsCounter from "./FruitsCounter";
 
-export default function RegisterForm() { 
-  const [form, setForm] = useState({ 
-    firstName: 'Luke', 
-    lastName: 'Jones', 
-    email: 'lukeJones@sculpture.com', 
-  }); 
+function App() {
+  const [fruits] = React.useState([  //useState : it could potentially have a name like useComponentData or useDynamicValue, useState is more concise and aligns with React’s existing vocabulary
+    {fruitName: 'apple', id: 1},
+    {fruitName: 'apple', id: 2},
+    {fruitName: 'plum', id: 3},
+    {fruitName: 'plum', id: 4}
+  ]);
+  const [count, setCount] = React.useState(0);
 
-  return ( 
-    <> 
-      <label> 
-        First name: 
-        <input 
-          value={form.firstName} 
-          onChange={e => { 
-            setForm({ 
-              ...form, 
-              firstName: e.target.value 
-            }); 
-          }} 
-        /> 
-      </label> 
-      <label> 
-        Last name: 
-        <input 
-          value={form.lastName} 
-          onChange={e => { 
-            setForm({ 
-              ...form, 
-              lastName: e.target.value 
-            }); 
-          }} 
-        /> 
-      </label> 
-      <label> 
-        Email: 
-        <input 
-          value={form.email} 
-          onChange={e => { 
-            setForm({ 
-              ...form, 
-              email: e.target.value 
-            }); 
-          }} 
-        /> 
-      </label> 
-      <p> 
-        {form.firstName}{' '} 
-        {form.lastName}{' '} 
-        ({form.email})
-      </p> 
-    </> 
-  ); 
-} 
+  return (
+    <div className="App">
+      <h1>Where should the state go?</h1>
+      <Fruits fruits={fruits}/>
+      <FruitsCounter fruits={fruits}/>
+      <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count+1)}>
+        Click me
+      </button>
+      </div>
+    </div>
+  );
+}
+
+export default App;
