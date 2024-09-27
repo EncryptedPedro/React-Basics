@@ -1,4 +1,4 @@
-import Heading from "./Heading";
+import Heading from "./Exercises/Heading";
 import './App.css';
 
 function App() {
