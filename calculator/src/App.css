@@ -1,0 +1,45 @@
+* {
+  font-family: sans-serif;
+}
+input,
+button {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+input {
+  display: block;
+  margin-bottom: 20px;
+}
+button {
+  border: 1px solid gray;
+  background: whitesmoke;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+button:active {
+  box-shadow: 15px;
+}
+
+.lastButtons button {
+  background: tomato;
+  color: white;
+  width: 150px;
+  height: 75px;
+}
+
+.calcButtons button {
+  width: 75px;
+  height: 75px;
+  font-size: 32px;
+}
+
+.extraButtons button {
+  width: 150px;
+  height: 75px;
+  font-size: 24px;
+}
+
+.calcButtons, .extraButtons, .lastButtons, input {
+  margin-left: 15px;
+}
